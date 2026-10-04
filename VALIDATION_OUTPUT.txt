@@ -1,0 +1,20 @@
+# Measured on: 2026-10-04 16:25 UTC | 2 logical CPUs | Python 3.13.14
+
+================================================================
+VALIDATION SUITE (sections 25/26)
+================================================================
+  [PASS] repeatability (same seed) -- successes=79/79 attempts=20000
+  seed 0xc0ffee: baseline 546.9 kH/s (214 hits) | adaptive 20.6 kH/s (248 hits)
+  seed 0xc1ffef: baseline 585.2 kH/s (200 hits) | adaptive 20.2 kH/s (231 hits)
+  seed 0xc2fff0: baseline 672.1 kH/s (239 hits) | adaptive 20.5 kH/s (242 hits)
+  [PASS] baseline comparison ran -- speedup=0.034 efficiency_ratio=1.104 z=1.84
+  [PASS] holdout split -- patterns promising on train=32, survive holdout=5 (survivors must be treated as chance until re-validated)
+  [PASS] randomized control (patterns on/off) -- patterns-on=119 hits, patterns-off=139 hits, z=-1.25  (no significant difference: patterns carry no cryptographic signal, as expected)
+  [PASS] independent run sanity -- attempts=30000 successes=127 (4.233/kHash, expected 3.906)
+----------------------------------------------------------------
+Benchmark verdict:
+  IMPLEMENTATION SPEEDUP: NO (adaptive/baseline throughput = 0.034)
+  CRYPTOGRAPHIC SHORTCUT: NO (success-per-hash ratio = 1.104, z = 1.84 vs baseline)
+  => No measurable advantage detected. (Expected: SHA-256 is designed to resist exactly this kind of structure exploitation.)
+FINAL VERDICT: No measurable advantage detected. The adaptive layer is an honest experimental framework; it does NOT beat plain SHA-256 search and does not claim to.
+checks: 5 run, 0 failed

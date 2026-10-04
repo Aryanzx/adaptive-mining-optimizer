@@ -1,0 +1,27 @@
+# Measured on: 2026-10-04 16:25 UTC | 2 logical CPUs | Python 3.13.14
+
+Running benchmark: 60000 hashes x 3 seeds x 2 modes (interleaved)
+  seed 0xc0ffee: baseline 645.5 kH/s (214 hits) | adaptive 20.3 kH/s (248 hits)
+  seed 0xc1ffef: baseline 656.9 kH/s (200 hits) | adaptive 21.3 kH/s (231 hits)
+  seed 0xc2fff0: baseline 690.7 kH/s (239 hits) | adaptive 18.7 kH/s (242 hits)
+================================================================
+BENCHMARK REPORT  (CPU only, 1 thread, SHA-256, difficulty=8 leading zero bits)
+budget=60000 hashes/mode/seed, seeds=3, interleaved A/B
+================================================================
+Baseline (Mode A, sequential nonce):
+  hashrate            =      664.4 kH/s (mean)
+  successes           = 653 / 180000 attempts
+  successes/kHash     = 3.628
+Adaptive (Mode B, full optimizer):
+  hashrate            =       20.1 kH/s (mean)
+  successes           = 721 / 180000 attempts
+  successes/kHash     = 4.006
+Difference  (Y - X)    = -644.3 kH/s
+Relative    (Y/X - 1)  = -97.0%
+adaptive_speedup       = 0.030
+Memory: 156 KB (adaptive structures, cap 256 KB) | RAM peak: 21240 KB | CPU: 50.8%
+Patterns: discovered=86 validated=0 rejected=37 | phase transitions=15
+----------------------------------------------------------------
+IMPLEMENTATION SPEEDUP: NO (adaptive/baseline throughput = 0.030)
+CRYPTOGRAPHIC SHORTCUT: NO (success-per-hash ratio = 1.104, z = 1.84 vs baseline)
+=> No measurable advantage detected. (Expected: SHA-256 is designed to resist exactly this kind of structure exploitation.)
